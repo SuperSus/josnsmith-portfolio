@@ -1,0 +1,33 @@
+<ng-container *ngIf="user | async as user">
+  <header>
+    <img *ngIf='user.avatar' [src]="user.avatar">
+    <h1>{{ user.name }}</h1>
+    <p><a href="" target="_blank" >{{ user.githubLogin }}</a></p>
+    <p>Other</p>
+  </header>
+  <div style="clear:both"></div>
+  <hr>
+  <section>
+    <p>Bio</p>
+    <ul>
+      <li>
+        <p>Expirience</p>
+        <ul>
+          <li *ngFor="let project of user.projects">
+            {{ project.name }} - {{ project.year }}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <p>Projects</p>
+    <ul class="project-list">
+      <li *ngFor="let project of user.projects">
+        <a [href]="project.link">link</a>
+      </li>
+      <div style="clear:both"></div>
+    </ul>
+  </section>
+</ng-container>
+    
